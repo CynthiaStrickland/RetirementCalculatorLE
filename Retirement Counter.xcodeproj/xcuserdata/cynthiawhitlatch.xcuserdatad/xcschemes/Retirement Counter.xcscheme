@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3DEEBDE51D05061D004C2C12"
+               BuildableName = "Retirement Counter.app"
+               BlueprintName = "Retirement Counter"
+               ReferencedContainer = "container:Retirement Counter.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3DEEBDFC1D05061D004C2C12"
+               BuildableName = "Retirement CounterTests.xctest"
+               BlueprintName = "Retirement CounterTests"
+               ReferencedContainer = "container:Retirement Counter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3DEEBE071D05061D004C2C12"
+               BuildableName = "Retirement CounterUITests.xctest"
+               BlueprintName = "Retirement CounterUITests"
+               ReferencedContainer = "container:Retirement Counter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3DEEBDE51D05061D004C2C12"
+            BuildableName = "Retirement Counter.app"
+            BlueprintName = "Retirement Counter"
+            ReferencedContainer = "container:Retirement Counter.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3DEEBDE51D05061D004C2C12"
+            BuildableName = "Retirement Counter.app"
+            BlueprintName = "Retirement Counter"
+            ReferencedContainer = "container:Retirement Counter.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3DEEBDE51D05061D004C2C12"
+            BuildableName = "Retirement Counter.app"
+            BlueprintName = "Retirement Counter"
+            ReferencedContainer = "container:Retirement Counter.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

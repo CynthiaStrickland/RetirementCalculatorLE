@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		3DEEBDE61D05061D004C2C12 /* Retirement Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retirement Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEEBDE91D05061D004C2C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DEEBDEB1D05061D004C2C12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DEEBDEB1D05061D004C2C12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Retirement Counter/ViewController.swift"; sourceTree = "<group>"; };
 		3DEEBDEE1D05061D004C2C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DEEBDF11D05061D004C2C12 /* Retirement_Counter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Retirement_Counter.xcdatamodel; sourceTree = "<group>"; };
 		3DEEBDF31D05061D004C2C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 		3DEEBDDD1D05061D004C2C12 = {
 			isa = PBXGroup;
 			children = (
+				3DEEBE1A1D05136F004C2C12 /* VIEW CONTROLLERS */,
 				3DEEBDE81D05061D004C2C12 /* Retirement Counter */,
 				3DEEBE001D05061D004C2C12 /* Retirement CounterTests */,
 				3DEEBE0B1D05061D004C2C12 /* Retirement CounterUITests */,
@@ -100,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				3DEEBDE91D05061D004C2C12 /* AppDelegate.swift */,
-				3DEEBDEB1D05061D004C2C12 /* ViewController.swift */,
 				3DEEBDED1D05061D004C2C12 /* Main.storyboard */,
 				3DEEBDF31D05061D004C2C12 /* Assets.xcassets */,
 				3DEEBDF51D05061D004C2C12 /* LaunchScreen.storyboard */,
@@ -126,6 +126,14 @@
 				3DEEBE0E1D05061D004C2C12 /* Info.plist */,
 			);
 			path = "Retirement CounterUITests";
+			sourceTree = "<group>";
+		};
+		3DEEBE1A1D05136F004C2C12 /* VIEW CONTROLLERS */ = {
+			isa = PBXGroup;
+			children = (
+				3DEEBDEB1D05061D004C2C12 /* ViewController.swift */,
+			);
+			name = "VIEW CONTROLLERS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
