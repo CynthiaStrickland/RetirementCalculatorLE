@@ -16,6 +16,9 @@ class DatePickerViewController: UIViewController {
     let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
+    
+    @IBAction func datePickerPressed(sender: AnyObject) {
+    }
     @IBAction func saveButtonPressed(sender: AnyObject) {
         
     }
@@ -31,6 +34,12 @@ class DatePickerViewController: UIViewController {
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Black
         nav?.tintColor = UIColor.whiteColor()
+        
+            //CUSTOM DATEPICKER APPEARANCE
+        
+        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePicker.datePickerMode = .CountDownTimer
+        datePicker.datePickerMode = .DateAndTime
         
     }
 
