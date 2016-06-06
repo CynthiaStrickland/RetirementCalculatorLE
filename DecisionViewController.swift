@@ -29,7 +29,6 @@ class DecisionViewController: UIViewController {
         nav?.tintColor = UIColor.whiteColor()
 
     }
-
     
     func customButton() {
         

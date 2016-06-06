@@ -12,6 +12,11 @@ class RetirementHoursViewController: UIViewController {
 
     @IBOutlet weak var retirementHoursSaveButton: UIButton!
     
+    @IBOutlet weak var OTHours: UITextField!
+    @IBOutlet weak var hoursAlreadyWorked: UITextField!
+    @IBOutlet weak var workDays: UITextField!
+    @IBOutlet weak var hoursRequiredTextField: UITextField!
+    
     let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
@@ -29,6 +34,15 @@ class RetirementHoursViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        OTHours.resignFirstResponder()
+        hoursAlreadyWorked.resignFirstResponder()
+        workDays.resignFirstResponder()
+        hoursRequiredTextField.resignFirstResponder()
+        
     }
     
     func customSaveButton() {

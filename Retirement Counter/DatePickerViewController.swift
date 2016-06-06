@@ -11,10 +11,13 @@ import UIKit
 class DatePickerViewController: UIViewController {
 
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePickerDate: UIDatePicker!
     
     let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
+    
+    //Assigns date chosen on date picker to date
+ //   let date:NSDate = datePickerDate.date
     
     
     @IBAction func datePickerPressed(sender: AnyObject) {
@@ -37,9 +40,9 @@ class DatePickerViewController: UIViewController {
         
             //CUSTOM DATEPICKER APPEARANCE
         
-        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        datePicker.datePickerMode = .CountDownTimer
-        datePicker.datePickerMode = .DateAndTime
+        datePickerDate.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePickerDate.datePickerMode = .CountDownTimer
+        datePickerDate.datePickerMode = .DateAndTime
         
     }
 
