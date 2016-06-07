@@ -44,7 +44,8 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func customDatePicker(textField: UITextField) {
-        
+        UIBarButtonItem.appearance().tintColor = UIColor.blueColor()
+
             // DatePicker
         self.datePicker = UIDatePicker(frame:CGRectMake(0, 0, self.view.frame.size.width, 216))
         self.datePicker.backgroundColor = UIColor.whiteColor()
@@ -61,19 +62,21 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
             // Adding Button ToolBar
         let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(DatePickerViewController.doneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(DatePickerViewController.cancelClick))
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(DatePickerViewController.cancelClick))
+        toolBar.setItems([/*cancelButton, */ spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         textField.inputAccessoryView = toolBar
+        
     }
     
     func doneClick() {
         let dateFormatter1 = NSDateFormatter()
-        dateFormatter1.dateStyle = .MediumStyle
-        dateFormatter1.timeStyle = .NoStyle
+        dateFormatter1.dateStyle = .FullStyle
+        dateFormatter1.timeStyle = .FullStyle
         dateTextField.text = dateFormatter1.stringFromDate(datePicker.date)
         dateTextField.resignFirstResponder()
     }
+    
     func cancelClick() {
         dateTextField.resignFirstResponder()
     }
@@ -84,8 +87,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        customSaveButton()
-        
+        customButtons()        
         dateTextField.delegate = self
     }
     
@@ -100,11 +102,13 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func customSaveButton() {
+    func customButtons() {
         saveButton.layer.borderColor = buttonBorder
         saveButton.layer.backgroundColor  = buttonColor
         saveButton.layer.borderWidth = 1
         saveButton.layer.cornerRadius = 10
+        
+        
         
         }
     }
