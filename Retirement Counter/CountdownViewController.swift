@@ -15,18 +15,13 @@ class CountdownViewController: UIViewController {
     @IBOutlet weak var minuteCounter: UILabel!
     @IBOutlet weak var secondCounter: UILabel!
     
+    @IBOutlet weak var generalDateLabel: UILabel!
+    
     @IBOutlet var countdownLabel: UIView!
     
     var date:NSDate!
-    
-
-    
     var countdownTimer = NSTimer()
-
-
-    
     let dateOfRetirement = NSCalendar.currentCalendar()
-
     
     func updateTime() {
         
@@ -39,7 +34,7 @@ class CountdownViewController: UIViewController {
 //        retirementDate.day = 21
 //        retirementDate.hour = 08
 //        retirementDate.minute = 00
-//        let retirement = retirementCalendar.dateFromComponents(retirementDate)!
+//        let retirement = compareDates.dateFromComponents(retirementDate)!
 //    }
 
     func DateFromString(dateStr:String, format:String="yyyy-MM-dd HH:mm") -> NSDate{
@@ -60,14 +55,7 @@ class CountdownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        startCountdown()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-
 }
 
 extension NSTimeInterval {
