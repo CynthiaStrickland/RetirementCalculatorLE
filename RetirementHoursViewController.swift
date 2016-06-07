@@ -51,7 +51,25 @@ class RetirementHoursViewController: UIViewController {
         retirementHoursSaveButton.layer.borderWidth = 1
         retirementHoursSaveButton.layer.cornerRadius = 10
         
+        OTHours.layer.borderColor = buttonBorder
+        OTHours.layer.backgroundColor  = buttonColor
+        OTHours.layer.borderWidth = 1
+        OTHours.layer.cornerRadius = 10
         
+        hoursAlreadyWorked.layer.borderColor = buttonBorder
+        hoursAlreadyWorked.layer.backgroundColor  = buttonColor
+        hoursAlreadyWorked.layer.borderWidth = 1
+        hoursAlreadyWorked.layer.cornerRadius = 10
+        
+        workDays.layer.borderColor = buttonBorder
+        workDays.layer.backgroundColor  = buttonColor
+        workDays.layer.borderWidth = 1
+        workDays.layer.cornerRadius = 10
+        
+        hoursRequiredTextField.layer.borderColor = buttonBorder
+        hoursRequiredTextField.layer.backgroundColor  = buttonColor
+        hoursRequiredTextField.layer.borderWidth = 1
+        hoursRequiredTextField.layer.cornerRadius = 10
     }
     
 

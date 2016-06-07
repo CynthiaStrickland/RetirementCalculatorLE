@@ -17,7 +17,7 @@ class CountdownViewController: UIViewController {
     
     @IBOutlet var countdownLabel: UIView!
     
-    
+    var date:NSDate!
     
 
     
