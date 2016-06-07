@@ -17,37 +17,16 @@ class CountdownViewController: UIViewController {
     
     @IBOutlet var countdownLabel: UIView!
     
-    var countdownTimer = NSTimer()
+    
+    
 
     
-    //Assigns date chosen on date picker to date
-//    let date:NSDate = datePickerDate.date
-//    
-//    let dateOfRetirement = NSCalendar.currentCalendar()
-//    let components = dateOfRetirement.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitDay, fromDate: date)
-//    
-//    let hour = components.hour
-//    let minutes = components.minute
-//    let month = components.month
-//    let year = components.year
-//    let day = components.day
-//    
-//    func updateCounter() {
-//        let timeLeft = datePicker.date.timeIntervalSinceNow
-//        countingLabel.text = timeLeft.time
-//    }
+    var countdownTimer = NSTimer()
+
+
     
-//    func startCountdown() {
-//        let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
-//
-//        let currentDate = NSDate();
-//        let currentFormatter = NSDateFormatter();
-//        currentFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//        currentFormatter.timeZone = NSTimeZone(abbreviation: "GMT+2:00")
-//        
-//÷
-//        let countdown = "\(diffDateComponents.month) m: \(diffDateComponents.day) d: \(diffDateComponents.hour) h: \(diffDateComponents.minute) min"
-//    }
+    let dateOfRetirement = NSCalendar.currentCalendar()
+
     
     func updateTime() {
         
@@ -61,8 +40,6 @@ class CountdownViewController: UIViewController {
 //        retirementDate.hour = 08
 //        retirementDate.minute = 00
 //        let retirement = retirementCalendar.dateFromComponents(retirementDate)!
-//        
-//
 //    }
 
     func DateFromString(dateStr:String, format:String="yyyy-MM-dd HH:mm") -> NSDate{
