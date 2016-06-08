@@ -11,7 +11,7 @@ import UIKit
 class DatePickerViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var calculateButton: UIButton!
     
     let dateText = ""
     var datePicker : UIDatePicker!
@@ -31,27 +31,34 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
             self.customDatePicker(self.dateTextField)
-
             let datePicker = UIDatePicker()
+        
             dateTextField.inputView = datePicker
             datePicker.addTarget(self, action: #selector(DatePickerViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
     }
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .FullStyle
+        formatter.dateFormat = "MMMM-dd-YYYY"
         dateTextField.text = formatter.stringFromDate(sender.date)
     }
     
     func customDatePicker(textField: UITextField) {
         UIBarButtonItem.appearance().tintColor = UIColor.blueColor()
-
+        let now = NSDate()
+        
             // DatePicker
         self.datePicker = UIDatePicker(frame:CGRectMake(0, 0, self.view.frame.size.width, 216))
         self.datePicker.backgroundColor = UIColor.whiteColor()
-        self.datePicker.datePickerMode = UIDatePickerMode.Date
-        dateTextField.inputView = self.datePicker
+            //WANT DATEPICKER TO SHOW MONTH, DAY, YEAR
+        self.datePicker.datePickerMode = .Date
         
+
+        dateTextField.inputView = self.datePicker
+            //WANT MINIMUM DATE SHOWING TO BE TODAY
+        datePicker.minimumDate = now
+        
+
             // ToolBar
         let toolBar = UIToolbar()
         toolBar.barStyle = .Default
@@ -62,8 +69,8 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
             // Adding Button ToolBar
         let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(DatePickerViewController.doneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(DatePickerViewController.cancelClick))
-        toolBar.setItems([/*cancelButton, */ spaceButton, doneButton], animated: false)
+
+        toolBar.setItems([spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         textField.inputAccessoryView = toolBar
         
@@ -71,8 +78,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     
     func doneClick() {
         let dateFormatter1 = NSDateFormatter()
-        dateFormatter1.dateStyle = .FullStyle
-        dateFormatter1.timeStyle = .FullStyle
+        dateFormatter1.dateStyle = .ShortStyle
         dateTextField.text = dateFormatter1.stringFromDate(datePicker.date)
         dateTextField.resignFirstResponder()
     }
@@ -87,7 +93,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        customButtons()        
+        customButtons()
         dateTextField.delegate = self
     }
     
@@ -103,12 +109,29 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func customButtons() {
-        saveButton.layer.borderColor = buttonBorder
-        saveButton.layer.backgroundColor  = buttonColor
-        saveButton.layer.borderWidth = 1
-        saveButton.layer.cornerRadius = 10
+        calculateButton.layer.borderColor = buttonBorder
+        calculateButton.layer.backgroundColor  = buttonColor
+        calculateButton.layer.borderWidth = 1
+        calculateButton.layer.cornerRadius = 10
         
         
         
         }
+    
+    // Date comparision to compare current date and end date.
+//    var dateComparisionResult:NSComparisonResult = NSDate().compare(endDate)
+//    
+//    if dateComparisionResult == NSComparisonResult.OrderedAscending
+//    {
+//    // Current date is smaller than end date.
+//    }
+//    else if dateComparisionResult == NSComparisonResult.OrderedDescending
+//    {
+//    // Current date is greater than end date.
+//    }
+//    else if dateComparisionResult == NSComparisonResult.OrderedSame
+//    {
+//    // Current date and end date are same.
+//    }
+    
     }
