@@ -14,7 +14,7 @@ class DecisionViewController: UIViewController {
     @IBOutlet weak var retirementHours: UIButton!
     @IBOutlet weak var retirementDate: UIButton!
     
-    let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
+    let buttonColor = UIColor(red:82/255, green:181/255, blue:255/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
     override func viewDidLoad() {

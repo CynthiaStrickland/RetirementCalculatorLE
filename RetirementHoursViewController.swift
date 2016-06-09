@@ -10,14 +10,14 @@ import UIKit
 
 class RetirementHoursViewController: UIViewController {
 
+    @IBOutlet weak var workHours: UIButton!
     @IBOutlet weak var retirementHoursSaveButton: UIButton!
     
     @IBOutlet weak var OTHours: UITextField!
     @IBOutlet weak var hoursAlreadyWorked: UITextField!
-    @IBOutlet weak var workDays: UITextField!
     @IBOutlet weak var hoursRequiredTextField: UITextField!
     
-    let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
+    let buttonColor = UIColor(red:82/255, green:181/255, blue:255/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
     override func viewDidLoad() {
@@ -37,12 +37,9 @@ class RetirementHoursViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         OTHours.resignFirstResponder()
         hoursAlreadyWorked.resignFirstResponder()
-        workDays.resignFirstResponder()
         hoursRequiredTextField.resignFirstResponder()
-        
     }
     
     func customSaveButton() {
@@ -50,6 +47,11 @@ class RetirementHoursViewController: UIViewController {
         retirementHoursSaveButton.layer.backgroundColor  = buttonColor
         retirementHoursSaveButton.layer.borderWidth = 1
         retirementHoursSaveButton.layer.cornerRadius = 10
+        
+        workHours.layer.borderColor = buttonBorder
+        workHours.layer.backgroundColor  = buttonColor
+        workHours.layer.borderWidth = 1
+        workHours.layer.cornerRadius = 10
         
         OTHours.layer.borderColor = buttonBorder
         OTHours.layer.backgroundColor  = buttonColor
