@@ -12,6 +12,8 @@
 		3D0F428F1D07460200AFC484 /* hours_black30.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0F428E1D07460200AFC484 /* hours_black30.png */; };
 		3D0F42911D07463600AFC484 /* CalendarIcon30.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0F42901D07463600AFC484 /* CalendarIcon30.png */; };
 		3D0F42951D07597600AFC484 /* home30.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0F42941D07597600AFC484 /* home30.png */; };
+		3D0F42971D0A09D600AFC484 /* HoursWorkedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F42961D0A09D600AFC484 /* HoursWorkedViewController.swift */; };
+		3D0F429A1D0A0C1900AFC484 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F42991D0A0C1900AFC484 /* DataModel.swift */; };
 		3D88D7551D05F6C50059E812 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D88D7541D05F6C50059E812 /* DecisionViewController.swift */; };
 		3D88D7571D05F8FD0059E812 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D88D7561D05F8FD0059E812 /* DatePickerViewController.swift */; };
 		3D88D7591D05FB4F0059E812 /* RetirementHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D88D7581D05FB4F0059E812 /* RetirementHoursViewController.swift */; };
@@ -48,6 +50,8 @@
 		3D0F428E1D07460200AFC484 /* hours_black30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hours_black30.png; path = ../../Documents/hours_black30.png; sourceTree = "<group>"; };
 		3D0F42901D07463600AFC484 /* CalendarIcon30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CalendarIcon30.png; path = ../../Documents/CalendarIcon30.png; sourceTree = "<group>"; };
 		3D0F42941D07597600AFC484 /* home30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home30.png; path = ../../Documents/home30.png; sourceTree = "<group>"; };
+		3D0F42961D0A09D600AFC484 /* HoursWorkedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursWorkedViewController.swift; sourceTree = "<group>"; };
+		3D0F42991D0A0C1900AFC484 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3D88D7541D05F6C50059E812 /* DecisionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
 		3D88D7561D05F8FD0059E812 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = "Retirement Counter/DatePickerViewController.swift"; sourceTree = "<group>"; };
 		3D88D7581D05FB4F0059E812 /* RetirementHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetirementHoursViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0F42981D0A0BDC00AFC484 /* MODAL */ = {
+			isa = PBXGroup;
+			children = (
+				3D0F42991D0A0C1900AFC484 /* DataModel.swift */,
+			);
+			name = MODAL;
+			sourceTree = "<group>";
+		};
 		3DEEBDDD1D05061D004C2C12 = {
 			isa = PBXGroup;
 			children = (
+				3D0F42981D0A0BDC00AFC484 /* MODAL */,
 				3DEEBE1A1D05136F004C2C12 /* VIEW CONTROLLERS */,
 				3DEEBDE81D05061D004C2C12 /* Retirement Counter */,
 				3DEEBE001D05061D004C2C12 /* Retirement CounterTests */,
@@ -153,9 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				3DEEBDEB1D05061D004C2C12 /* CountdownViewController.swift */,
-				3D88D7541D05F6C50059E812 /* DecisionViewController.swift */,
 				3D88D7561D05F8FD0059E812 /* DatePickerViewController.swift */,
+				3D88D7541D05F6C50059E812 /* DecisionViewController.swift */,
 				3D88D7581D05FB4F0059E812 /* RetirementHoursViewController.swift */,
+				3D0F42961D0A09D600AFC484 /* HoursWorkedViewController.swift */,
 			);
 			name = "VIEW CONTROLLERS";
 			sourceTree = "<group>";
@@ -297,9 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D88D7551D05F6C50059E812 /* DecisionViewController.swift in Sources */,
+				3D0F42971D0A09D600AFC484 /* HoursWorkedViewController.swift in Sources */,
 				3D88D7571D05F8FD0059E812 /* DatePickerViewController.swift in Sources */,
 				3DEEBDEC1D05061D004C2C12 /* CountdownViewController.swift in Sources */,
 				3DEEBDEA1D05061D004C2C12 /* AppDelegate.swift in Sources */,
+				3D0F429A1D0A0C1900AFC484 /* DataModel.swift in Sources */,
 				3DEEBDF21D05061D004C2C12 /* Retirement_Counter.xcdatamodeld in Sources */,
 				3D88D7591D05FB4F0059E812 /* RetirementHoursViewController.swift in Sources */,
 			);

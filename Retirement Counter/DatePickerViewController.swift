@@ -13,14 +13,21 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var calculateButton: UIButton!
     
-    let dateText = ""
+    var currentDate = NSDate()
     var datePicker : UIDatePicker!
+    
     
     let buttonColor = UIColor(red:0/255, green:134/255, blue:239/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
-    @IBAction func enterButtonPressed(sender: AnyObject) {
+    @IBAction func calculateButtonPressed() {
         
+    }
+        
+    func timeBetween(startDate: NSDate, endDate: NSDate) -> [Int] {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day, .Month, .Year], fromDate: startDate, toDate: endDate, options: [])
+        return [components.day, components.hour, components.minute]
     }
 
     
@@ -41,20 +48,21 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM-dd-YYYY"
         dateTextField.text = formatter.stringFromDate(sender.date)
+        var myDate = dateTextField.text
+        
+        NSUserDefaults.standardUserDefaults().setObject(myDate, forKey: "Retire-Date")
     }
     
     func customDatePicker(textField: UITextField) {
         UIBarButtonItem.appearance().tintColor = UIColor.blueColor()
+        
         let now = NSDate()
         
             // DatePicker
-        self.datePicker = UIDatePicker(frame:CGRectMake(0, 0, self.view.frame.size.width, 216))
-        self.datePicker.backgroundColor = UIColor.whiteColor()
-            //WANT DATEPICKER TO SHOW MONTH, DAY, YEAR
-        self.datePicker.datePickerMode = .Date
         
 
         dateTextField.inputView = self.datePicker
+        
             //WANT MINIMUM DATE SHOWING TO BE TODAY
         datePicker.minimumDate = now
         
@@ -69,7 +77,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
             // Adding Button ToolBar
         let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(DatePickerViewController.doneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-
         toolBar.setItems([spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         textField.inputAccessoryView = toolBar
@@ -77,13 +84,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doneClick() {
-        let dateFormatter1 = NSDateFormatter()
-        dateFormatter1.dateStyle = .ShortStyle
-        dateTextField.text = dateFormatter1.stringFromDate(datePicker.date)
-        dateTextField.resignFirstResponder()
-    }
-    
-    func cancelClick() {
         dateTextField.resignFirstResponder()
     }
     
@@ -95,19 +95,19 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         customButtons()
         dateTextField.delegate = self
+        
+        self.datePicker = UIDatePicker()
+        self.datePicker.backgroundColor = UIColor.whiteColor()
+        self.datePicker.datePickerMode = .Date
+
     }
     
     override func viewDidAppear(animated: Bool) {
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Black
         nav?.tintColor = UIColor.whiteColor()
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func customButtons() {
         calculateButton.layer.borderColor = buttonBorder
         calculateButton.layer.backgroundColor  = buttonColor
@@ -117,21 +117,16 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         
         
         }
+
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "ShowCounterSegue"
+//        {
+//            if let destinationVC = segue.destinationViewController as? CountdownViewController {
+//                destinationVC.numberToDisplay = counter
+//            }
+//        }
+//    }
     
-    // Date comparision to compare current date and end date.
-//    var dateComparisionResult:NSComparisonResult = NSDate().compare(endDate)
-//    
-//    if dateComparisionResult == NSComparisonResult.OrderedAscending
-//    {
-//    // Current date is smaller than end date.
-//    }
-//    else if dateComparisionResult == NSComparisonResult.OrderedDescending
-//    {
-//    // Current date is greater than end date.
-//    }
-//    else if dateComparisionResult == NSComparisonResult.OrderedSame
-//    {
-//    // Current date and end date are same.
-//    }
+
     
     }
