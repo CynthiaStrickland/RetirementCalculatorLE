@@ -41,11 +41,15 @@ class CountdownViewController: UIViewController {
     }
     
     func updateCounter() {
-        
-//        if let timeLeft = NSUserDefaults.standardUserDefaults().objectForKey("Retire-Date") as? NSDate {
-//            datePicker.setValue(myDate, forKey: "Retire-Date")
-//            generalDateLabel.text = timeLeft.description
-//        }
+
+    }
+    
+    func loadChosenDate() {
+        NSUserDefaults.standardUserDefaults().objectForKey("Retire-Date") as? NSDate
+        let displayDate = loadChosenDate()
+        let chosenDateformatter = NSDateFormatter()
+        chosenDateformatter.dateFormat = "MMMM-dd-YYYY"
+ //       generalDateLabel.text = chosenDateFormatter.stringFromDate(displayDate)
     }
     
     override func viewDidLoad() {
