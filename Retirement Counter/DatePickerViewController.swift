@@ -21,13 +21,24 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     let buttonBorder = UIColor.whiteColor().CGColor
     
     @IBAction func calculateButtonPressed() {
-        
     }
-        
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customButtons()
+        dateTextField.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.Black
+        nav?.tintColor = UIColor.whiteColor()
+    }
+    
     func timeBetween(startDate: NSDate, endDate: NSDate) -> [Int] {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day, .Month, .Year], fromDate: startDate, toDate: endDate, options: [])
-        return [components.day, components.hour, components.minute]
+        return [components.month, components.day, components.year]
     }
 
     
@@ -38,9 +49,14 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
             self.customDatePicker(self.dateTextField)
-            let datePicker = UIDatePicker()
-        
+            self.datePicker = UIDatePicker()
+            self.datePicker.datePickerMode = .Date
+            self.datePicker.backgroundColor = UIColor.whiteColor()
             dateTextField.inputView = datePicker
+            let now = NSDate()
+            dateTextField.inputView = self.datePicker
+            datePicker.minimumDate = now
+
             datePicker.addTarget(self, action: #selector(DatePickerViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
     }
     
@@ -48,25 +64,15 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM-dd-YYYY"
         dateTextField.text = formatter.stringFromDate(sender.date)
-        var myDate = dateTextField.text
-        
+       
+            //SAVE DATE TO USER DEFAULTS
+        let myDate = dateTextField.text
         NSUserDefaults.standardUserDefaults().setObject(myDate, forKey: "Retire-Date")
     }
     
     func customDatePicker(textField: UITextField) {
         UIBarButtonItem.appearance().tintColor = UIColor.blueColor()
         
-        let now = NSDate()
-        
-            // DatePicker
-        
-
-        dateTextField.inputView = self.datePicker
-        
-            //WANT MINIMUM DATE SHOWING TO BE TODAY
-        datePicker.minimumDate = now
-        
-
             // ToolBar
         let toolBar = UIToolbar()
         toolBar.barStyle = .Default
@@ -80,7 +86,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         toolBar.setItems([spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         textField.inputAccessoryView = toolBar
-        
     }
     
     func doneClick() {
@@ -90,23 +95,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         dateTextField.resignFirstResponder()
     }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        customButtons()
-        dateTextField.delegate = self
-        
-        self.datePicker = UIDatePicker()
-        self.datePicker.backgroundColor = UIColor.whiteColor()
-        self.datePicker.datePickerMode = .Date
 
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        let nav = self.navigationController?.navigationBar
-        nav?.barStyle = UIBarStyle.Black
-        nav?.tintColor = UIColor.whiteColor()
-    }
 
     func customButtons() {
         calculateButton.layer.borderColor = buttonBorder
@@ -114,19 +103,5 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         calculateButton.layer.borderWidth = 1
         calculateButton.layer.cornerRadius = 10
         
-        
-        
         }
-
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "ShowCounterSegue"
-//        {
-//            if let destinationVC = segue.destinationViewController as? CountdownViewController {
-//                destinationVC.numberToDisplay = counter
-//            }
-//        }
-//    }
-    
-
-    
     }
