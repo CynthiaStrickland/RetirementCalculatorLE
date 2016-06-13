@@ -35,13 +35,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         nav?.tintColor = UIColor.whiteColor()
     }
     
-    func timeBetween(startDate: NSDate, endDate: NSDate) -> [Int] {
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day, .Month, .Year], fromDate: startDate, toDate: endDate, options: [])
-        return [components.month, components.day, components.year]
-    }
-
-    
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         dateTextField.resignFirstResponder()
         return true
@@ -56,18 +49,20 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
             let now = NSDate()
             dateTextField.inputView = self.datePicker
             datePicker.minimumDate = now
-
             datePicker.addTarget(self, action: #selector(DatePickerViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
     }
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "MMMM-dd-YYYY"
+        formatter.dateFormat = "MM/dd/yy hh:mm:ss a"
+        formatter.timeZone = NSTimeZone.defaultTimeZone()
+
         dateTextField.text = formatter.stringFromDate(sender.date)
        
-            //SAVE DATE TO USER DEFAULTS
+                                                    //SAVE DATE TO USER DEFAULTS
         let myDate = dateTextField.text
         NSUserDefaults.standardUserDefaults().setObject(myDate, forKey: "Retire-Date")
+        print(myDate)
     }
     
     func customDatePicker(textField: UITextField) {

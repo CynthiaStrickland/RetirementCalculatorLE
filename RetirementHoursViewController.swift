@@ -12,7 +12,6 @@ class RetirementHoursViewController: UIViewController {
 
     @IBOutlet weak var workHours: UIButton!
     @IBOutlet weak var retirementHoursSaveButton: UIButton!
-    
     @IBOutlet weak var OTHours: UITextField!
     @IBOutlet weak var hoursAlreadyWorked: UITextField!
     @IBOutlet weak var hoursRequiredTextField: UITextField!
@@ -68,16 +67,5 @@ class RetirementHoursViewController: UIViewController {
         hoursRequiredTextField.layer.borderWidth = 1
         hoursRequiredTextField.layer.cornerRadius = 10
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
