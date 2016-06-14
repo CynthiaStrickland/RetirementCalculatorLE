@@ -12,10 +12,11 @@ class CountdownViewController: UIViewController {
 
     @IBOutlet weak var countdownLabel: UILabel!
     
+    
     var formatter = NSDateFormatter()
     let dateOfRetirementCalendar = NSCalendar.currentCalendar()
     
-    let retirementDateComponents : NSCalendarUnit = [
+    let dateComponents : NSCalendarUnit = [
         NSCalendarUnit.Month,
         NSCalendarUnit.Day,
         NSCalendarUnit.Hour,
@@ -25,29 +26,34 @@ class CountdownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        updateView()
-        
-        let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(updateView), userInfo: nil, repeats: true)
-        timer.fire()
-        
-
+            updateView()
+            
+            let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(updateView), userInfo: nil, repeats: true)
+            timer.fire()
     }
     
     func updateView() {
+        
+        let chosenRetirementDate = loadChosenDate()
+        print(chosenRetirementDate)
+        
         formatter.dateFormat = "MM/dd/yy hh:mm:ss a"
         let startTime = NSDate()
- //       let endTime = formatter.dateFromString("\(myDate")
-        let endTime = formatter.dateFromString("01/01/2016 12:00:00 a")
-
-        let countdownTime = dateOfRetirementCalendar.components(retirementDateComponents, fromDate: endTime!, toDate: startTime, options: [])
-        countdownLabel.text = "\(countdownTime.month) Months \(countdownTime.day) Days \(countdownTime.hour) Hours \(countdownTime.minute) Minutes \(countdownTime.second) Seconds"
+ //       let endTime = formatter.dateFromString("\(chosenRetirementDate)")
+        let endTime = formatter.dateFromString("04/01/18 12:00:00 a")
         
-
+        let countdownTime = dateOfRetirementCalendar.components(dateComponents, fromDate: endTime!, toDate: startTime, options: [])
+        countdownLabel.adjustsFontSizeToFitWidth = true
+        countdownLabel.text = "\(countdownTime.month) Mo.s \(countdownTime.day) Days \(countdownTime.hour) Hrs \(countdownTime.minute) Min \(countdownTime.second) Sec"
+    
     }
     
-    func loadChosenDate() {
-        NSUserDefaults.standardUserDefaults().objectForKey("Retire-Date") as? NSDate
+    func loadChosenDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM/dd/yy hh:mm:ss a"
+//        formatter.stringFromDate()
+        
+        return (NSUserDefaults.standardUserDefaults().stringForKey("Retire-Date"))! as! NSDate
         
     }
     

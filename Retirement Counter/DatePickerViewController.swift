@@ -16,11 +16,24 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     var currentDate = NSDate()
     var datePicker : UIDatePicker!
     
-    
     let buttonColor = UIColor(red:82/255, green:181/255, blue:255/255, alpha:1.0).CGColor as CGColorRef
     let buttonBorder = UIColor.whiteColor().CGColor
     
     @IBAction func calculateButtonPressed() {
+        if dateTextField.text == "" {
+            let alertView = UIAlertController(title: "Retirement Date",
+                message: "Please select your Retirement Date" as String, preferredStyle:.Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertView.addAction(okAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
+        } else {
+            let myDate = dateTextField.text
+            let prefs = NSUserDefaults.standardUserDefaults()
+            prefs.setObject(myDate, forKey: "Retire-Date")
+            print(myDate)
+            
+            performSegueWithIdentifier("calculate", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -58,11 +71,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         formatter.timeZone = NSTimeZone.defaultTimeZone()
 
         dateTextField.text = formatter.stringFromDate(sender.date)
-       
-                                                    //SAVE DATE TO USER DEFAULTS
-        let myDate = dateTextField.text
-        NSUserDefaults.standardUserDefaults().setObject(myDate, forKey: "Retire-Date")
-        print(myDate)
     }
     
     func customDatePicker(textField: UITextField) {
